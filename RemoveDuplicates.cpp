@@ -14,7 +14,7 @@ public:
            nums[j++] = nums[i];
         }
     }
-    nums[j++] = nums[n-1];
+    nums[j++] = nums[n-1];    // Store the last element as whether  it is unique or repeated, it hasn't stored previously
     return j;
 
     }
