@@ -38,7 +38,7 @@ class Solution {
             ListNode r2= runner.next.next;
             
             //Do the three swaps to reverse the pair
-            runner.next=r2;
+            runner.next=r2;    // this will happen after the 2 below swaps
             r1.next=r2.next;
             r2.next=r1;
             
