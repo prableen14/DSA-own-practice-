@@ -6,7 +6,7 @@ Input: head = [4,5,1,9], node = 5
 Output: [4,1,9]
 Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.*/
 
-class Solution {
+class Solution { //DELETE NODE IN A LINKED LIST WITHOUT HEAD POINTER
 public:
     void deleteNode(ListNode* node) {
          node->val=node->next->val; //coping the next node value to the currrent pointing node and then deleting then next node
