@@ -9,7 +9,7 @@ Explanation: You are given the second node with value 5, the linked list should 
 class Solution {
 public:
     void deleteNode(ListNode* node) {
-         node->val=node->next->val;
+         node->val=node->next->val; //coping the next node value to the currrent pointing node and then deleting then next node
         node->next=node->next->next;
     }
 };
