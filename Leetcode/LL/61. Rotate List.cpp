@@ -12,8 +12,14 @@ Constraints:
 The number of nodes in the list is in the range [0, 500].
 -100 <= Node.val <= 100
 0 <= k <= 2 * 109
-*/
 
+optimised Solution steps: 
+TC= O(n)- O(n-(n%k))= O(n)
+1) Count the length of the LL
+2)Last's node next is gonna point to head 
+3)Get the (length-kth) node and point it to null
+
+*/
 
 class Solution {
 public:
