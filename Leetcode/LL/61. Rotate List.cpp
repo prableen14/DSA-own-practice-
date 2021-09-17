@@ -28,7 +28,7 @@ public:
         if (!head || !head->next || k == 0) return head;
         
         // compute the length
-        ListNode *cur = head;
+        ListNode *cur = head; //we assign a dummy pointer to the head
         int len = 1;
         while (cur->next && ++len) 
             cur = cur->next;
