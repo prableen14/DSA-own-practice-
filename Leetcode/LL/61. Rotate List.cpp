@@ -12,30 +12,26 @@ Output: [2,0,1]
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-        if(head==NULL || head->next==NULL)
-{
-return head;
-}
-ListNode *p=head,*q=NULL;
-int count=1;
-while(p->next!=NULL)
-{
-q=p;
-p=p->next;
-count++;
-}
-k>=count?k=k%count:k=k;
-for(int i =0;i<k;i++)
-{
-p->next=head;
-head=p;
-q->next=NULL;
-while(p->next!=NULL)
-{
-q=p;
-p=p->next;
-}
-}
-return head;
+         // edge cases 
+        if (!head || !head->next || k == 0) return head;
+        
+        // compute the length
+        ListNode *cur = head;
+        int len = 1;
+        while (cur->next && ++len) 
+            cur = cur->next;
+        
+        // go till that node
+        cur->next = head;
+        k = k % len; 
+        k = len - k;
+        while (k--) cur = cur->next;
+        
+        // make the node head and break connection 
+        head = cur->next;
+        cur->next = NULL;
+        
+        
+        return head; 
     }
 };
