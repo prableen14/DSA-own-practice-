@@ -19,7 +19,7 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
          int n = nums.size();
-        int max_so_far = INT_MIN;
+        int max_so_far = INT_MIN; //INT_MIN is a macro that specifies that an integer variable cannot store any value below this limit.
         int curr_max = 0;
         for(int i = 0;i < n;i++){
             curr_max += nums[i];
