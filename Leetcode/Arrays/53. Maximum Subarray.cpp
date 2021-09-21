@@ -15,6 +15,8 @@ Example 3:
 Input: nums = [5,4,-1,7,8]
 Output: 23 */
 
+/* KADEN's Algorithm */
+
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
