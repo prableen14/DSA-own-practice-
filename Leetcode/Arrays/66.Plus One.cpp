@@ -46,7 +46,7 @@ public:
         digits[i]++;
         return digits;
     }
-    digits[i] = 0;
+    digits[i] = 0;  //Take the case of 999. In this all digits will be first made to zero and then at the beginning 1 is added
 }
     digits.push_back(0);
     digits[0]++;
