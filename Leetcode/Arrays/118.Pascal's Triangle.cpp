@@ -14,21 +14,17 @@ Constraints:
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
-        if(numRows==1){
-            return {{1}};
-        }
-        vector<vector<int>>vec={{1},{1,1}};
-        
-        
-        for(int i=2;i<numRows;i++){
-            vector<int>temp(i+1,-1);
-             temp[0]=vec[i-1][0];
-             temp[i]=vec[i-1][i-1];
-            for(int j=1;j<i;j++){
-               temp[j]=vec[i-1][j-1]+vec[i-1][j];
+        vector<vector<int>> v;
+        vector<int> u;
+        v.push_back({1});
+        for(int i = 1; i < numRows; i++) {
+            u.push_back(1);
+            for(int j  = 1; j < i; j++) {
+                u.push_back(v[i-1][j]+v[i-1][j-1]);
             }
-            vec.push_back(temp);
+            u.push_back(1);
+            v.push_back(u);
+            u.clear();
         }
-        return vec;
-    }
+        return v;}
 };
