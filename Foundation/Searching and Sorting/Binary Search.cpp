@@ -1,5 +1,6 @@
 //TC: O(log n)
 //  the reason binary search is in O(log n) is that it halves the input set in each iteration.
+//Input data needs to be sorted (Ascending) in Binary Search and not in Linear Search
 #include<iostream>
 using namespace std;
 int main()
