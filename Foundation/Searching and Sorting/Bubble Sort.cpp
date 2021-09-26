@@ -1,5 +1,7 @@
-#include <iostream>
+//TC: O(n^2) in Average and Worst Case
+//  : O(n) in Best Case when elements are already sorted.
 
+#include <iostream>
 using namespace std;
 
 int main ()
