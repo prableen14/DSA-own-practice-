@@ -1,4 +1,5 @@
-
+//TC: O(log n)
+//  the reason binary search is in O(log n) is that it halves the input set in each iteration.
 #include<iostream>
 using namespace std;
 int main()
