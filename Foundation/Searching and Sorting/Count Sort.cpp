@@ -13,11 +13,11 @@ void countSort(int *arr,int n, int lo, int up){
      int range= up-lo+1;
      int *farr = new int [range]; 
      for(int i=0;i<n;i++){
-         int idx=arr[i]-lo;
-         farr[idx]++;
+         int idx=arr[i]-lo;  //Finding right index in frequency array to put elements
+         farr[idx]++;        //Increasing count at that index
      }
      for(int i=1;i<range;i++){
-         farr[i]=farr[i]+farr[i-1];
+         farr[i]=farr[i]+farr[i-1]; //Calculating prefix sum in that frequency array
      }
      
      int ans[n];
