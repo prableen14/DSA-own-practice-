@@ -11,7 +11,7 @@ using namespace std;
 
 void countSort(int *arr,int n, int lo, int up){
      int range= up-lo+1;
-     int *farr = new int [range]; 
+     int *farr = new int [range]; //make frequency array
      for(int i=0;i<n;i++){
          int idx=arr[i]-lo;  //Finding right index in frequency array to put elements
          farr[idx]++;        //Increasing count at that index
@@ -21,6 +21,7 @@ void countSort(int *arr,int n, int lo, int up){
      }
      
      int ans[n];
+  //Stable Sorting(Filling ans array)
      for(int i=n-1;i>=0;i--){
          int val=arr[i];
          int pos=farr[val-lo];
@@ -28,6 +29,7 @@ void countSort(int *arr,int n, int lo, int up){
          ans[idx]=val;
          farr[val-lo]--;
      }
+  //Filling original array with the help of ans array
      for(int i=0;i<n;i++){
          arr[i]=ans[i];
      }
