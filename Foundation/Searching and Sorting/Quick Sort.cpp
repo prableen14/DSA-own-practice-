@@ -18,6 +18,7 @@ j++;
 */
 /* It is also known as “partition exchange sort”.
 TC: O(nlogn) in best and average case. O(n^2) in worst case.
+*/
 #include<iostream>
 #include<cstdlib>
 
