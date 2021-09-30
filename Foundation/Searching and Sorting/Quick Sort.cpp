@@ -14,6 +14,10 @@ swap(arr,i,j)
 i++;
 j++;
 }
+
+*/
+/* It is also known as “partition exchange sort”.
+TC: O(nlogn) in best and average case. O(n^2) in worst case.
 #include<iostream>
 #include<cstdlib>
 
@@ -25,7 +29,7 @@ void swap(int *a, int *b) {
    *a = *b;
    *b = temp;
 }
-*/
+
 int Partition(int a[], int l, int h) {
    int pivot, index, i;
    index = l;
