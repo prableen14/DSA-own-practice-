@@ -40,3 +40,17 @@ public:
         
     }
 };
+//Using stringstream
+
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+     // breaking input into word using string stream
+        stringstream ss(s); // Used for breaking words
+        string word;  //To store individual words
+        int ans;
+        while(ss>>word) ans=word.length();
+        
+        return ans;
+    }
+};
