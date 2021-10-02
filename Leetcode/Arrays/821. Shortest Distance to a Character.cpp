@@ -32,12 +32,12 @@ public:
         for(int i=0;i<n;i++){
             if(s.at(i)==c)
                 c_position=i;
-            output_arr[i]=i-c_position;
+            output_arr[i]=i-c_position;    // 12, 13,14,0,1,0,0,1,2,3,4,0  (for string loveleetcode)
         }
         for(int i=n-1;i>=0;i--){
             if(s.at(i)==c)
                 c_position=i;
-            output_arr[i]=min(output_arr[i],abs(i-c_position));
+            output_arr[i]=min(output_arr[i],abs(i-c_position));   //3,2,1,0,1,0,0,1,2,2,1,0  after second sweep
         }
         return output_arr;
         }
