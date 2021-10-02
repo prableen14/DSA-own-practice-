@@ -32,14 +32,12 @@ public:
         for(int i=0;i<n;i++){
             if(s.at(i)==c)
                 c_position=i;
-            else 
-                output_arr[i]=i-c_position;
+            output_arr[i]=i-c_position;
         }
         for(int i=n-1;i>=0;i--){
             if(s.at(i)==c)
                 c_position=i;
-            else 
-                output_arr[i]=min(output_arr[i],abs(i-c_position));
+            output_arr[i]=min(output_arr[i],abs(i-c_position));
         }
         return output_arr;
         }
