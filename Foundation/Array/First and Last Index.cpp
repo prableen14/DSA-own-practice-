@@ -20,7 +20,7 @@ int main(){
         mid=(low+high)/2;
         if(data<arr[mid])
         high=mid-1;
-         if(data>arr[mid])
+         else if(data>arr[mid])
         low=mid+1;
         else{
             firstIndex=mid;
@@ -35,7 +35,7 @@ int main(){
         mid=(low+high)/2;
         if(data<arr[mid])
         high=mid-1;
-         if(data>arr[mid])
+        else if(data>arr[mid])
         low=mid+1;
         else{
             lastIndex=mid;
