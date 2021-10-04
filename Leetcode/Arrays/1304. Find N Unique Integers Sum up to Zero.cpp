@@ -39,3 +39,27 @@ public:
         return arr;
     }
 };
+
+//ANOTHER APPROACH
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        
+        vector<int> res(n, 0);
+        
+        int i = 0;
+        int j = n-1;
+        
+        while(i < j)
+        {
+            res[i] = (i + 1);
+            res[j] = (-1) * (res[i]);
+            
+            i++;
+            j--;
+        }
+        
+        return res;
+        
+    }
+};
