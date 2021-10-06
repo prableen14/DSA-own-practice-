@@ -15,7 +15,7 @@ public:
         ListNode* fast =new ListNode();
         slow=head;   
         fast=head;
-        while(slow && fast && fast->next)
+        while(slow && fast && fast->next)  // OR   while(fast!=NULL && fast->next!=NULL)
         {
             slow=slow->next;
             fast=fast->next->next;            
