@@ -47,14 +47,14 @@ int Partition(int a[], int l, int h) {
 int RandomPivotPartition(int a[], int l, int h) {
    int pvt, n, temp;
    n = rand();
-   pvt = l + n%(h-l+1);
+   pvt = l + n%(h-l+1);    //finding pivot element
    swap(&a[h], &a[pvt]);
    return Partition(a, l, h);
 }
 int QuickSort(int a[], int l, int h) {
    int pindex;
    if(l < h) {
-      pindex = RandomPivotPartition(a, l, h);
+      pindex = RandomPivotPartition(a, l, h); 
       QuickSort(a, l, pindex-1);
       QuickSort(a, pindex+1, h);
    }
