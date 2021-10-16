@@ -45,6 +45,7 @@ public:
                 res.pop();
             else if(c==']' && !res.empty() && res.top()=='[')
                 res.pop();
+         else return false;
         }
         return res.empty();
     }
