@@ -44,28 +44,29 @@ public:
     }
 };
 
-// JAVA SOLUTION
+// ANOTHER SOLUTION
 class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-//Set up dummy node to point to the head of the list
-ListNode dummy= new ListNode(0);
-dummy.next=head;
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy= new ListNode(0);
+dummy->next=head;
 
-//Set up walker amd runner to start at the dummy node
-ListNode runner=dummy;
-ListNode walker=dummy;
+//Set up slow amd fast to start at the dummy node
+ListNode* fast=dummy;
+ListNode* slow=dummy;
 
-//Advances runner so that the distance between is n+1
+//Advances fast so that the distance between is n+1
 for(int i=1; i<= n+1;i++){
-    runner=runner.next;
+    fast=fast->next;
 }
-//Move runner to the end maintaining the gap
-while(runner!=null){
-runner=runner.next;
-walker=walker.next;
+//Move fast to the end maintaining the gap
+while(fast!=NULL){
+fast=fast->next;
+slow=slow->next;
 }
-// Delete the n-th Node from the End(walker is currently at n-1 node)
-walker.next=walker.next.next;
-return dummy.next;
-}
+// Delete the n-th Node from the End(slow is currently at n-1 node)
+slow->next=slow->next->next;
+return dummy->next;
+
+    }
 };
