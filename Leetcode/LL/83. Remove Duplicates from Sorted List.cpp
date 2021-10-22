@@ -10,19 +10,14 @@ Output: [1,2,3] */
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-                ListNode * ptr=head;
-        while(ptr!=NULL && ptr->next!=NULL)
-        {
-            while(ptr!=NULL && ptr->next!=NULL && ptr->val==ptr->next->val)
-            {
-                ptr->next=ptr->next->next;
-              
-                
-            }
-            if(ptr!=NULL)
-            ptr=ptr->next;
+       ListNode* curr=head;
+        while(curr!=NULL && curr->next!=NULL){
+            if(curr->val==curr->next->val){
+                curr->next=curr->next->next;  //skip the matching node
         }
-        return head;
-        
+        else
+            curr=curr->next;  
+    }
+    return head;
     }
 };
