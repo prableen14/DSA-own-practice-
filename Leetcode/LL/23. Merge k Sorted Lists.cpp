@@ -65,3 +65,41 @@ public:
         return head;
     }
 };
+
+//ANOTHER APPROACH (pepcoding)
+class Solution {
+public:
+     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(l1==NULL || l2==NULL) return l1!=NULL ? l1 : l2;
+        
+        ListNode* c1=l1;
+        ListNode* c2=l2;
+        ListNode* dummy= new ListNode(-1);
+        ListNode* prev=dummy;
+        
+        while(c1!=NULL && c2!=NULL){
+            if(c1->val < c2->val){
+                prev->next=c1;
+                c1=c1->next;
+            }
+            else {prev->next=c2;
+            c2=c2->next;}
+            prev=prev->next;
+        }
+        prev->next= c1!=NULL ?c1 : c2;
+        return dummy->next;
+    }
+     ListNode* mergeKLists(vector<ListNode*>& lists, int si, int ei) {
+         if(si>ei) return NULL;
+         if(si==ei) return lists[si];
+         int mid=(si+ei)/2;
+         ListNode* l1= mergeKLists(lists,si,mid);
+           ListNode* l2= mergeKLists(lists,mid+1,ei);
+         return mergeTwoLists(l1,l2);
+        
+    }
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.size()==0) return NULL;
+        return mergeKLists(lists,0,lists.size()-1);
+    }
+};
