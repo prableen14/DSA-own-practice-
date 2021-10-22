@@ -16,56 +16,23 @@ Output: [0]
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(l1==NULL || l2==NULL) return l1!=NULL ? l1 : l2;
         
-        ListNode* temp1 = l1;
-        ListNode* temp2 = l2;
-        ListNode* myHead;
-        ListNode* current;
-        if(l1==NULL) return l2;
-        if(l2==NULL) return l1;
-        if(l2->val < l1->val){
-            
-           myHead = temp2;
-           current =  temp2; 
-           temp2 = temp2->next;
-            
-        }else{
-            myHead = temp1;
-            current = temp1;
-            temp1 = temp1->next;
-        }
+        ListNode* c1=l1;
+        ListNode* c2=l2;
+        ListNode* dummy= new ListNode(-1);
+        ListNode* prev=dummy;
         
-        while(temp1 != NULL && temp2!=NULL){
-            
-            if(temp2->val >= temp1->val ){
-                current->next = temp1;
-                current = current->next;
-                temp1 = temp1->next;
-                
-            }else{
-                
-                current->next = temp2;
-                current = current->next;
-                temp2 = temp2->next;   
-            }    
-        }
-        if(temp1 == NULL){
-            
-            while(temp2!=NULL){
-                
-                current->next = temp2;
-                current = current->next; 
-                temp2 = temp2->next;
+        while(c1!=NULL && c2!=NULL){
+            if(c1->val < c2->val){
+                prev->next=c1;
+                c1=c1->next;
             }
+            else {prev->next=c2;
+            c2=c2->next;}
+            prev=prev->next;
         }
-        if(temp2 == NULL){
-            
-            while(temp1!=NULL){
-                 current->next = temp1;
-                 current = current->next;     
-                 temp1 = temp1->next;
-            }    
-        }
-        return myHead;
+        prev->next= c1!=NULL ?c1 : c2;
+        return dummy->next;
     }
 };
