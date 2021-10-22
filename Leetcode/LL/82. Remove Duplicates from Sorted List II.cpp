@@ -13,23 +13,22 @@ Output: [2,3]
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-         ListNode *p = nullptr, *q = head;
-        while(q)
-        {
-            if(q->next && q->next->val == q->val)
-            {
-                int dup = q->val;
-                while(q && q->val == dup)
-                    q = q->next;
-                if(!p) 
-                    head = q;
-                else
-                    p->next = q;
+        if(head==NULL || head->next==NULL) return head;
+        ListNode* dummy= new ListNode(-1);
+        ListNode* itr=dummy;
+        itr->next= head;  //potential unique element
+        ListNode* curr= head->next;
+        while(curr!=NULL){
+            bool isLoopRun= false;
+            while(curr!=NULL && itr->next->val== curr->val){
+                isLoopRun=true;
+                curr=curr->next;
             }
-            else
-                p = q, q = q->next;
+            if (isLoopRun) itr->next=curr; //current element will be potential unique element
+            else itr=itr->next;
+            
+            if(curr!=NULL) curr=curr->next;
         }
-        return head;
-    
+        return dummy->next;
     }
 };
