@@ -65,7 +65,7 @@ fast=fast->next;
 slow=slow->next;
 }
 // Delete the n-th Node from the End(slow is currently at n-1 node)
-slow->next=slow->next->next;
+slow->next=slow->next->next;  //breaking the link of the node which is to be deleted
 return dummy->next;
 
     }
