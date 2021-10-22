@@ -12,38 +12,52 @@ Output: false
 
 class Solution {
 public:
-    bool isPalindrome(ListNode* head) {
-                ListNode *curr=head;
+        ListNode* middleNode(ListNode* head) {
+        if(head==NULL || head->next==NULL) return head;
+        ListNode *fast= head;
+        ListNode *slow = head;
+        
+        while(fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+     ListNode* reverse(ListNode* head){
+        if(head==NULL || head->next==NULL) return head;
         ListNode* prev=NULL;
-        ListNode* slow=head;
-        ListNode* fast=head;
-        
-        
-        while(fast && fast->next){
-            slow=slow->next;
-            fast=fast->next->next;
-             ListNode *n=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=n;
-            
+        ListNode* curr=head;
+        ListNode* forw=NULL;
+        while(curr!=NULL){
+            forw=curr->next;  //backup
+            curr->next=prev;   //links attach
+            prev=curr;        //move foward
+            curr=forw;        //move foward
         }
-        if(fast==NULL){
-            ListNode* p=prev;
-            
-        }else{
-            ListNode* p=prev;
-            slow=slow->next;      
-        }
+        return prev;     //will be at new head
+    }
+    
+    bool isPalindrome(ListNode* head) {
+          if(head==NULL || head->next==NULL) return true;
+        ListNode* mid= middleNode(head);
+        ListNode* nHead= mid->next;
+        mid->next=NULL;
+        nHead= reverse(nHead);
+        ListNode* c1= head;
+        ListNode* c2= nHead;
         
-         while(prev!=NULL){
-                if(prev->val!=slow->val){
-                    return false;
-                }
-                prev=prev->next;
-                slow=slow->next;
+        bool res=true;
+        while(c2!=NULL){
+            if(c1->val!= c2->val){
+                res= false;
+                 break;
             }
-            return true;
-        
+            c1=c1->next;
+            c2=c2->next;
+        }
+        nHead= reverse(nHead);
+        mid->next= nHead;
+        return res;
     }
 };
