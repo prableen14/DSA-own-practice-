@@ -22,11 +22,11 @@ dummy->next=head;
 ListNode* fast=dummy;
 ListNode* slow=dummy;
 
-//Advances fast so that the distance between is n+1
+//Advances fast so that it will be at position+1 i.e at (n+1) 
 for(int i=1; i<= n+1;i++){
     fast=fast->next;
 }
-//Move fast to the end maintaining the gap
+//Move fast to the end maintaining the gap (so that slow will be at n-1 when fast is at tail)
 while(fast!=NULL){
 fast=fast->next;
 slow=slow->next;
