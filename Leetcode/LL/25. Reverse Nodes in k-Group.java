@@ -22,33 +22,56 @@ Output: [1]
 */
 
 class Solution {
-    public ListNode reverseKGroup(ListNode head, int k) {
-       if(head == null || head.next ==null || k==1)
-       return head;
-    
-    ListNode temp_head = head;
-    int count = 1;
-    while(temp_head != null && count < k)
-    {
-       temp_head = temp_head.next;
-       count++; 
+public:
+       ListNode* th=NULL;  //temporary head
+        ListNode* tt=NULL;  //temporary tail
+     void addFirstNode(ListNode* node) {
+        if(th==NULL){
+            th= node;
+            tt= node;
+        }
+         else {node->next=th;
+         th=node;}
+          
+    }
+     int length(ListNode* node) {
+        ListNode* curr=node;
+         int len=0;
+         while(curr!=NULL){
+             curr=curr->next;
+             len++;
+         }
+         return len;
     }
     
-    if(temp_head == null && count <= k)
-        return head;
-    
-    ListNode tail = reverseKGroup(temp_head.next,k);
-    
-    while(head != temp_head)
-    {
-        ListNode next = head.next;
-        head.next = tail;
-        tail = head;
-        head = next;
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(head==NULL || head->next==NULL) return head;
+        ListNode* oh=NULL;  //original head;
+        ListNode* ot=NULL;  //original tail;
+        int len=length(head);
+        ListNode* curr=head;
+            
+            while(len>=k){
+                int tempk=k;
+                while(tempk-->0){
+                    ListNode* forw= curr->next;
+                    curr->next=NULL;
+                    addFirstNode(curr);
+                    curr=forw;
+                }
+                if(oh==NULL){
+                    oh=th;
+                ot=tt;
+                }
+                else{
+                    ot->next=th;
+                    ot=tt;
+                }
+                th=NULL;
+                tt=NULL;
+                len-=k;
+        }
+        ot->next=curr;
+        return oh;
     }
-    
-    temp_head.next = tail;
-    
-    return temp_head; 
-    }
-}
+};
