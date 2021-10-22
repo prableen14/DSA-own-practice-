@@ -1,14 +1,14 @@
     public void addFirst(int val) {
       // write your code here
-      Node temp= new Node();
-      temp.data=val;
+      Node* temp= new Node();
+      temp->data=val;
       if(size==0){
       head=tail=temp;
-      temp.next=null;
+      temp->next=null;
       size++;
       }
       else{
-      temp.next=head;
+      temp->next=head;
       head=temp;
       size++;
     }
