@@ -57,7 +57,7 @@ ListNode* subtractTwoNumbers(ListNode* l1, ListNode* l2)
 {
  if(l2==NULL) return l1;
  if(l1==NULL) {
-     l2->val= -l2->val;
+     l2->val= -l2->val;   //all node values in l2 linked list becomes negative
      return l2;
  }
  l1= reverse(l1);
