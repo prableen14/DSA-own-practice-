@@ -30,8 +30,8 @@ using namespace std;
 
 int max(int arr[], int idx, int n){
     // write your code here
-    if(idx==n-1)
-    return arr[idx];
+    if(idx==n-1) return arr[idx];
+    
     int maxInSmallerArray= max(arr,idx+1,n);
     if(maxInSmallerArray>arr[idx]) return maxInSmallerArray;
     else return arr[idx];
