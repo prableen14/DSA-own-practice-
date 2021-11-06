@@ -26,15 +26,17 @@ Sample Output
 #include <vector>
 using namespace std;
 
+// bc -> [--, -c, b-, bc]
+//abc -> [---, --c, -b-, -bc, a--, a-c, ab-, abc]
 vector<string> gss(string s){
     // write your code here
     if(s.size()==0)
     {vector<string> bres;
     bres.push_back("");
     return bres;}
-    char ch=s.at(0);
-    string ros=s.substr(1);
-    vector<string> rres= gss(ros);
+    char ch=s.at(0); //a
+    string ros=s.substr(1);  //bc
+    vector<string> rres= gss(ros); // [--, -c, b-, bc]
     
     vector<string> mres;
     for(string rstr: rres)
