@@ -23,3 +23,48 @@ Sample Input
 Sample Output
 [tv, tw, tx, uv, uw, ux]
 */
+
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
+
+string codes[]= {".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+
+vector<string> getKPC(string s) {
+  //Write your code here
+  if(s.size()==0){
+      vector<string> bres;
+    bres.push_back("");
+    return bres;
+  }
+  char ch=s.at(0); 
+    string ros=s.substr(1);
+vector<string> rres= getKPC(ros); 
+    vector<string> mres;
+    string codeforch= codes[ch-'0'];
+    for(int i=0; i<codeforch.length(); i++){
+        char chcode= codeforch.at(i);
+         for(string rstr: rres)
+    mres.push_back(chcode+rstr);
+    }
+  return mres;
+}
+
+
+int main() {
+  string s;
+  cin >> s;
+  vector<string> ans = getKPC(s);
+  int cnt = 0;
+
+  cout << '[';
+  for (string str : ans) {
+    if (cnt != ans.size() - 1)
+      cout << str << ", ";
+    else
+      cout << str;
+    cnt++;
+  }
+  cout << ']';
+}
