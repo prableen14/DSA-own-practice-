@@ -9,17 +9,24 @@
 // Output: 1
 
 class Solution {
-    public int numTrees(int n) {
-                int[] table = new int[n+1];
-        table[0] = 1;
+public:
 
-        for (int t = 1; t <= n; t++) {
-            int sum = 0;
-            for (int i = 1; i <= t; i++) {
-                sum += table[i-1] * table[t-i];
-            }
-            table[t] = sum;
-        }
-        return table[n];
-    }
+int numTrees(int n, vector<int> &memo) {
+	// base case
+	if (n <= 1) return 1;
+	// if subProblem is not solved
+	if (not memo[n])
+		// recursion
+		for (int i = 1; i <= n; i++)
+			memo[n] += numTrees(i - 1, memo) * numTrees(n - i, memo);
+	// return solved subProblem
+	return memo[n];
 }
+
+// main
+int numTrees(int n) {
+	// init memo
+	vector<int> memo(20);
+	return numTrees(n, memo); 
+    }
+};
