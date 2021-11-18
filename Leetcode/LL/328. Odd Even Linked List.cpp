@@ -32,14 +32,18 @@ n == number of nodes in the linked list
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        if(head==NULL || head->next==NULL) return head;
-        ListNode* dummyEven= new ListNode(-1);
-        ListNode* dummyOdd= new ListNode(-1);
-         ListNode* evenTail= dummyEven;
-        ListNode* oddTail= dummyOdd;
+        if(head==NULL || head->next==NULL) return head; //for size 1
+        
+        ListNode* dummyEven= new ListNode(-1); //evenHead
+        ListNode* dummyOdd= new ListNode(-1);  //oddHead
+        
+         ListNode* evenTail= dummyEven; //evenTail
+        ListNode* oddTail= dummyOdd;  //oddTail
         ListNode* curr=head;
+        int cnt = 0;
         while(curr!=NULL){
-           if (curr->val%2!=0){
+            cnt++;
+           if (cnt%2!=0){
                oddTail->next=curr;
                oddTail=oddTail->next;
            }
