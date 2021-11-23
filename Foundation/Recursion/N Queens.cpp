@@ -21,13 +21,13 @@ Sample Output
 #include<bits/stdc++.h>
 using namespace std;
 bool isitasafeplaceforqueen(vector<vector<int>> chess, int row, int col){
-    for(int i=row-1,j=col;i>=0;i--){
+    for(int i=row-1,j=col;i>=0;i--){ //checking vertically
     if(chess[i][j]==1) return false;
     }
      for(int i=row-1,j=col-1;i>=0 && j>=0;i--,j--){
-    if(chess[i][j]==1) return false;
+    if(chess[i][j]==1) return false; //checking diagonally
      }
-          for(int i=row-1,j=col+1;i>=0 && j<chess.size();i--,j++){
+          for(int i=row-1,j=col+1;i>=0 && j<chess.size();i--,j++){  //checking for other digonal
     if(chess[i][j]==1) return false;
      }
      return true;
