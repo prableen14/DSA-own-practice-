@@ -47,11 +47,11 @@ if(sr==maze.size()-1 || sc==maze[0].size()-1){
     return;
 }
 visited[sr][sc]=true;
-floodfill(maze,sr-1,sc,asf+"t", visited);
-floodfill(maze,sr,sc-1,asf+"l", visited);
-floodfill(maze,sr+1,sc,asf+"d", visited);
-floodfill(maze,sr,sc+1,asf+"r", visited);
-visited[sr][sc]=false;
+floodfill(maze,sr-1,sc,asf+"t", visited); //top
+floodfill(maze,sr,sc-1,asf+"l", visited); //left
+floodfill(maze,sr+1,sc,asf+"d", visited); //down
+floodfill(maze,sr,sc+1,asf+"r", visited); //right
+visited[sr][sc]=false; //to explore and print more paths, we have to mark visited as false now
 }
 
 int main() {
