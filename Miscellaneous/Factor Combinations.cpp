@@ -35,14 +35,14 @@ class Solution {
   }
 
  private:
-  void dfs(int n, int s, vector<int>& path, vector<vector<int>>& ans) {
+  void dfs(int n, int index, vector<int>& path, vector<vector<int>>& ans) {
     if (n <= 1) {
       if (path.size() > 1)
         ans.push_back(path);
       return;
     }
 
-    for (int i = s; i <= n; ++i)
+    for (int i = index; i <= n; ++i)
       if (n % i == 0) {
         path.push_back(i);
         dfs(n / i, i, path, ans);
