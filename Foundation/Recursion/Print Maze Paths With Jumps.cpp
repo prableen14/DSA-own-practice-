@@ -41,3 +41,27 @@ d1v1h1
 d1d1
 d2
 */
+#include<iostream>
+using namespace std;
+
+
+    void printMazePaths(int sr, int sc, int dr, int dc, string psf) {
+        // write your code here
+        if(sr==dr && sc==dc){
+            cout<<psf<<endl;
+            return;
+        }
+        for(int ms=1;ms<=dc-sc;ms++)
+        printMazePaths(sr,sc+ms,dr,dc,psf+"h"+to_string(ms));
+        for(int ms=1;ms<=dr-sr;ms++)
+         printMazePaths(sr+ms,sc,dr,dc,psf+"v"+to_string(ms));
+         for(int ms=1;ms<=dr-sr && ms<=dc-sc;ms++)
+         printMazePaths(sr+ms,sc+ms,dr,dc,psf+"d"+to_string(ms));
+        
+    }
+
+int main() {
+        int n ;
+        int m ;cin>>n>>m;
+        printMazePaths(1, 1, n, m, "");  //printMazePaths(0, 0, n - 1, m - 1, "");  //same meaning of both lines
+    }
