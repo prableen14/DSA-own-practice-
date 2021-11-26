@@ -27,3 +27,4 @@ Sample Input
 Sample Output
 true
 */
+//No. of Subsets: 2^n (Each Element has 2 choices, whether to come or not)
