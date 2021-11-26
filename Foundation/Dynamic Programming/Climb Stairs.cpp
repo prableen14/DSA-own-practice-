@@ -38,6 +38,7 @@ int main(){
     cout<<cs(n,new int[n+1])<<endl;
 }
 //Using Tabulation (Iteration)
+//3 Stages of Tabulation : 1) Storage and Meaning    2)Identify the Direction    3)Travel and Solve
 #include <iostream>
 using namespace std;
 
