@@ -7,12 +7,13 @@ Input Format
 A number n
 Output Format
 A number representing the number of ways to climb the stairs from 0 to top.
-Question Video
-
-  COMMENTConstraints
+Constraints
 0 <= n <= 20
 Sample Input
 4
 Sample Output
 7
 */
+//Using Memoization
+
+//Using Tabulation (Iteration)
