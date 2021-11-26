@@ -43,8 +43,8 @@ void printSS(string ques, string ans){
     }
     char ch=ques.at(0);
     string roq= ques.substr(1);
-    printSS(roq,ans+ch);
-    printSS(roq,ans+"");    
+    printSS(roq,ans+ch);    //call of Yes
+    printSS(roq,ans+"");   //call of No 
 }
 
 int main(){
