@@ -42,9 +42,9 @@ for(int i=1;i<n+1;i++){
         { int rCap=j-weight[i-1];
            if (dp[i-1][rCap]+val[i-1]>dp[i-1][j])
            dp[i][j]=dp[i-1][rCap]+val[i-1];
-           else dp[i][j]=dp[i-1][j];
+           else dp[i][j]=dp[i-1][j]; //when i doesnt bat
         }
-       else dp[i][j]=dp[i-1][j];
+       else dp[i][j]=dp[i-1][j]; //when i doesnt bat
     }
 }
 cout<<dp[n][cap];
