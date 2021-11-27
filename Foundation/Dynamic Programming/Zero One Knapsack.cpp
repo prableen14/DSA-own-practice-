@@ -35,7 +35,7 @@ using namespace std;
 
 void zeroOneKnapsack(int n, vector<int> val, vector<int> weight, int cap) {
 
-  vector<vector<int>> dp(n + 1, vector<int>(cap + 1));
+  vector<vector<int>> dp(n + 1, vector<int>(cap + 1)); //when we use vector as 2D array we dont have to worry about garbage value because by default it has 0in every place
 for(int i=1;i<n+1;i++){
     for(int j=1;j<=cap;j++){
         if(j>=weight[i-1])
