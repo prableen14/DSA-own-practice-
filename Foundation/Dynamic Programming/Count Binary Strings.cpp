@@ -35,3 +35,22 @@ int main(){
     
     cout<<dp1[n]+dp0[n];
 }
+//Another Approach
+#include <iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+
+    int oczeros=1; //old count of binary strings with zeros
+    int ocones=1;//old count of binary string with ones 
+    for(int i=2;i<=n;i++){
+    int nczeros=ocones;
+    int ncones=oczeros+ocones;
+    
+    oczeros=nczeros;
+    ocones=ncones;
+    }
+    
+    cout<<oczeros+ocones;
+}
