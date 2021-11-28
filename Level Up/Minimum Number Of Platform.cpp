@@ -20,3 +20,41 @@ Sample Input
 Sample Output
 3
 */
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+ int findPlatform(int arr[], int dep[], int n) {
+    // write your code here
+    sort(dep, dep + n);	
+    sort(arr, arr + n);
+    int i=0;
+    int j=0;
+    int maxtrains=0;
+    int platform=0;
+    while(i<n && j<n){
+        if(arr[i]<=dep[j]){
+            maxtrains++;
+            i++;
+        }
+        else {maxtrains--;
+        j++;}
+platform=max(platform,maxtrains);
+}
+return platform;
+  }
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    int dep[n];
+        for(int i = 0 ; i < n; i++){
+        cin>>arr[i];
+    }
+        for(int i = 0 ; i < n; i++){
+        cin>>dep[i];
+    }
+    
+     int plateforms = findPlatform(arr, dep,n);
+     cout<<plateforms;
+     return 0;
+}
