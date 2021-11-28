@@ -27,8 +27,8 @@ using namespace std;
     // write your code here
     sort(dep, dep + n);	
     sort(arr, arr + n);
-    int i=0;
-    int j=0;
+    int i=0; //Pointing to arrival time
+    int j=0; //Pointing to departure time
     int maxtrains=0;
     int platform=0;
     while(i<n && j<n){
