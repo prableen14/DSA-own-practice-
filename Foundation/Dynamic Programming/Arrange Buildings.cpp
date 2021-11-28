@@ -13,21 +13,22 @@ Sample Input
 Sample Output
 441
 */
+//Same question as count binary strings
 #include <iostream>
 using namespace std;
 int main(){
-    int n;
+    long n;
     cin>>n;
 
-    int ob=1; //old building
-    int os=1;//old space 
+    long ob=1; //old building
+    long os=1;//old space 
     for(int i=2;i<=n;i++){
-    int nb=os; //new building
-    int ns=ob+os; // new space
+    long nb=os; //new building
+    long ns=os+ob; // new space
     
     ob=nb;
     os=ns;
     }
-    int t=ob+os;  
+    long t=ob+os;  
     cout<<t*t; //total no. of ways
 }
