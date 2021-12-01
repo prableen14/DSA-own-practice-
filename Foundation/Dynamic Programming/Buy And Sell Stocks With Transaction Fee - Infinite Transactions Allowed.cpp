@@ -47,7 +47,7 @@ for(int i=1;i<arr.size();i++){
   //changing bought state profit on every day
     if(ossp-arr[i]>obsp) nbsp=ossp-arr[i];
         else nbsp=obsp;
-  //changing bought state profit on every day
+  //changing selling state profit on every day
         if(obsp+arr[i]-fee>ossp) nssp=obsp+arr[i]-fee;
         else nssp=ossp;
         
