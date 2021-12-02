@@ -25,3 +25,57 @@ Sample Input
 Sample Output
 30
 */
+#include <iostream>
+#include <vector>
+#include <climits>
+
+using namespace std;
+
+
+void transactions(vector<int> arr) {
+  // write your code here
+  int mpst=0; //maximum profit if sold today
+  int lsf=arr[0]; //least so far
+  int n=arr.size();
+  int dpl[n];// maximum profit if sold upto today
+  for(int i=0;i<n;i++)
+  dpl[i]=0; //instead of doing this, we can make dp as vector instead of array: vector<int> dpl(arr.size(), 0);
+  for(int i=1;i<arr.size();i++){
+      if(arr[i]<lsf)
+          lsf=arr[i];
+      mpst=arr[i]-lsf;
+      if(mpst>dpl[i-1])
+      dpl[i]=mpst;
+      else dpl[i]=dpl[i-1];
+  }
+  int mpbt=0; //max profit if bought today;
+  int maxat=arr[n-1]; //max after today
+  int dpr[n];
+  for(int i=0;i<n;i++)
+  dpr[i]=0;
+  for(int i=n-2;i>=0;i--){
+      if(arr[i]>maxat)
+      maxat=arr[i];
+      mpbt=maxat-arr[i];
+      if(mpbt>dpr[i+1])
+      dpr[i]=mpbt;
+      else dpr[i]=dpr[i+1];
+  }
+  int op=0; //overall profit
+  for(int i=0;i<n;i++){
+      if(dpl[i]+dpr[i]>op)
+      op=dpl[i]+dpr[i];
+  }
+  cout<<op;
+}
+
+int main() {
+  int n ;
+  cin >> n;
+  vector<int> arr(n, 0);
+  for (int i = 0; i < arr.size(); i++) {
+    cin >> arr[i] ;
+  }
+  transactions(arr);
+  return 0;
+}
