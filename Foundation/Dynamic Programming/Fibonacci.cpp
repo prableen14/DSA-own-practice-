@@ -42,3 +42,22 @@ int main(){
     cout<<fibn<<endl;
     return 0;
 }
+
+//Another approach
+class Solution {
+public:
+
+    int fib(int n) {
+        int  f[n + 2];
+        //Initialise the two first value
+        //BOTTOM UP
+        f[0] = 0;
+        f[1] = 1;
+        
+        //MEMOIZATION
+        for (int i = 2; i <= n; i++) {
+            f[i] = f[i - 1] + f[i - 2];
+        }
+        return f[n];
+    }
+};
