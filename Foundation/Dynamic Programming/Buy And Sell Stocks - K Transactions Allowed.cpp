@@ -72,7 +72,6 @@ int main() {
   return 0;
 }
 //OPTIMIZED SOLUTION, T(N): O(N^2)
-
 void transactions(vector<int> arr, int k) {
   //write your code here
   int n=arr.size();
