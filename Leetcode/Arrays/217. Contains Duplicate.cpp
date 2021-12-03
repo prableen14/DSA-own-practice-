@@ -29,3 +29,17 @@ public:
         return false;
     }
 };
+
+//Another Approach
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> hashset;
+		
+        for(size_t i = 0; i < nums.size(); i++)
+            if(!hashset.insert(nums[i]).second) /* if it's a duplicate */
+                return true;
+				
+        return false; /* if there are no duplicates */
+    }
+};
