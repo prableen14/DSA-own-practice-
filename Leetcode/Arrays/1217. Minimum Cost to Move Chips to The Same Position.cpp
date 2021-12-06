@@ -30,13 +30,13 @@ public:
         {
             if (i%2 == 1) 
             {
-                odd++;
+                odd++; //chips at odd place
             } 
             else 
             {
-                even++;
+                even++; //chips at even place
             }
         }
-        return min(odd , even) ;
+        return min(odd,even) ;
     }
 };
