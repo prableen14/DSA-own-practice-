@@ -52,3 +52,31 @@ public:
         return res;
     }
 };
+//Another Approach: reverse linked list and then we can get least significant bit first
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        head=reverse(head);
+        int res=0;
+        int power=0;
+        while(head!=NULL){
+            res+=head->val*pow(2,power);
+            power++;
+            head=head->next;
+        }
+        return res;
+    }
+    ListNode* reverse(ListNode* head){
+        if(head==NULL || head->next==NULL) return head;
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        ListNode* forw=NULL;
+        while(curr!=NULL){
+            forw=curr->next;  //backup
+            curr->next=prev;   //links attach
+            prev=curr;        //move foward
+            curr=forw;        //move foward
+        }
+        return prev;     //will be at new head
+    }
+};
