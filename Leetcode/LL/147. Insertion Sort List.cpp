@@ -28,11 +28,11 @@ public:
                 while(prev->next&& prev->next->val<curr->next->val){
                     prev=prev->next;
                 }
-                //SWAP
+      // when this above while loop terminates we have found the correct position for inserting curr->next (which is between prev and prev->next)
                 ListNode* temp=prev->next;
                 prev->next=curr->next;
                 curr->next=curr->next->next;
-                prev->next->next=temp; //prev->next is now the node we inserted and its next should now be to temp(whichever prev->next was there in starting)
+                prev->next->next=temp; //prev->next is now the node we inserted and its next should now be to temp (whichever prev->next was there in starting)
                 prev=start;
             }
             else curr=curr->next;
