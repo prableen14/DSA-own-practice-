@@ -28,7 +28,7 @@ public:
                 while(prev->next&& prev->next->val<curr->next->val){
                     prev=prev->next;
                 }
-            //SWAP
+                //SWAP
                 ListNode* temp=prev->next;
                 prev->next=curr->next;
                 curr->next=curr->next->next;
