@@ -15,7 +15,32 @@ Example 2:
 Input: head = [-1,5,3,4,0]
 Output: [-1,0,3,4,5]
 */
-
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode* start=new ListNode(); //dummy node
+        start->next=head;
+        ListNode* prev=start;
+        ListNode* curr=head;
+        while(curr){
+            if(curr->next!=NULL && curr->next->val<curr->val){
+            //INSERTION
+                while(prev->next&& prev->next->val<curr->next->val){
+                    prev=prev->next;
+                }
+            //SWAP
+                ListNode* temp=prev->next;
+                prev->next=curr->next;
+                curr->next=curr->next->next;
+                prev->next->next=temp; //prev->next is now the node we inserted and its next should now be to temp(whichever prev->next was there in starting)
+                prev=start;
+            }
+            else curr=curr->next;
+        }
+        return start->next;
+    }
+};
+//ANOTHER APPROACH
 class Solution {
 public:
     ListNode* insertionSortList(ListNode* head) {
