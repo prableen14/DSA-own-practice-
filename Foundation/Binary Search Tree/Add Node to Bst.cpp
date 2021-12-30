@@ -25,3 +25,4 @@ Sample Output
 . <- 70 -> .
 . <- 87 -> .
 */
+#include<iostream>
