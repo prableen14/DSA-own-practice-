@@ -26,6 +26,19 @@ There will be at least one word in s.*/
 class Solution {
 public:
     int lengthOfLastWord(string s) {
+       int A = 0;
+        for (int i=s.size()-1; i>=0; --i) {
+            if (s[i] != ' ') ++A;
+            else if(A > 0 && s[i] == ' ') break;
+        }
+        return A;
+    }
+};
+
+//Another
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
         int ans=0;
         bool flag=false;
         for(int i=s.length()-1;i>=0;i--){
