@@ -12,30 +12,10 @@ Output: false
 Constraints:
 1 <= s.length, t.length <= 5 * 104
 s and t consist of lowercase English letters.*/
-class Solution {
-public:
-    bool isAnagram(string s, string t) {
-     int c=0;
-        if(s.size() != t.size()) 
-            return false;
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
-        
-        for(int i=0;i<s.size();i++)
-        {
-            if(s[i]==t[i])
-                c++;
-        }
-		
-        if(c==s.size())
-            return true;
-        
-        else
-            return false;   
-    }
-};
 
-//Another 
+//Sorting Solution
+//Time Complexity: O (n(log n)) 
+//Space Complexity: O(1)
 class Solution {
 public:
     bool isAnagram(string s, string t) {
@@ -47,4 +27,31 @@ public:
 		return false;
    
     }
+};
+//Hashmap Solution
+//Time Complexity: O(n)
+//Space Complexcity : O(n)
+class Solution {
+public:
+	bool isAnagram(string s, string t) {
+		if(s.length() != t.length()){
+			return false;
+		}
+         // Create a HashMap containing Character as Key and
+        // Integer as Value. We will be storing character as
+        // Key and count of character as Value.
+		unordered_map<char, int> mp;
+		for(int i = 0; i < s.size(); i++){
+			mp[s[i]]++; // Increase the number of frequency
+			mp[t[i]]--; // Decrease the number of frequency
+		}
+        // Loop over all keys and check if all keys are 0.
+        // If so it means it is anagram.
+		for(auto i : mp){
+			if(i.second!=0){
+				return false;
+			} 
+		}
+		return true;
+	}
 };
