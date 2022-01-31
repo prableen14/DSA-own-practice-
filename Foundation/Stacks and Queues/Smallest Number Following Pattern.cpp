@@ -23,3 +23,35 @@ ddddiiii
 Sample Output
 543216789
 */
+#include<iostream>
+#include <string>
+#include <stack>
+using namespace std;
+
+int main() {
+    int nums=1;
+  string str;
+  cin >> str;
+stack<int> st;
+for(int i=0;i<str.size();i++){
+    if(str[i]=='d'){
+        st.push(nums);
+        nums++;
+    }
+    else{
+        st.push(nums);
+        nums++;
+        
+        while(st.size()>0){
+        cout<<st.top();
+        st.pop();
+    }
+    }
+}
+    st.push(nums);
+    while (st.size() > 0) {
+    cout << st.top();
+    st.pop();
+}
+}
+
