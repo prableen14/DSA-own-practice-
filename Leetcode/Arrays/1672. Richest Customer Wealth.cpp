@@ -30,6 +30,9 @@ n == accounts[i].length
 1 <= m, n <= 50
 1 <= accounts[i][j] <= 100
 */
+//ANALYSIS :-
+//Time Complexity :- BigO(M * N), where M is customer & N is bank
+//Space Complexity :- BigO(1) as we are not using any extra-space
 class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
