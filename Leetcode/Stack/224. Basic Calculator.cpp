@@ -23,3 +23,42 @@ s represents a valid expression.
 There will be no two consecutive operators in the input.
 Every number and running calculation will fit in a signed 32-bit integer.
 */
+class Solution {
+public:
+    int calculate(string s) {
+        int sum=0;
+        int sign=1;
+        stack<int> st;
+        for(int i=0;i<s.size();i++){
+            if(isdigit(s[i])){
+                int val=0;
+                while(i<s.size() && isdigit(s[i])){
+                    val=val*10+(s[i]-'0');
+                    i++;
+                }
+                i--;
+                val=val*sign;
+                sum+=val;
+                sign=1;
+            }
+            else if(s[i]=='('){
+                st.push(sum);
+                st.push(sign);
+                sum=0;
+                sign=+1;
+            }
+            else if(s[i]==')'){
+                int d=st.top();
+                sum*=d;
+                st.pop();
+                int t=st.top();
+                sum+=t;
+                st.pop();
+            }
+            else if(s[i]=='-'){
+              sign*=-1;  
+            }
+        }
+        return sum;
+    }
+};
