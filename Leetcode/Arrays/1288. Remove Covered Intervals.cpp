@@ -23,7 +23,7 @@ public:
     int removeCoveredIntervals(vector<vector<int>>& intervals) {
        int start=-1, end=-1, remIntervals=0;
         sort(intervals.begin(),intervals.end()); //by default sorting is done based on starting value
-        for(auto& interval: intervals){
+        for(auto interval: intervals){
             if(interval[0]>start && interval[1]>end){
                 start=interval[0];
                 remIntervals++;
