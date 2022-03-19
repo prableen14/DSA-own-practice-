@@ -33,7 +33,6 @@ public:
         return ans;
     }
 };
-
 //Using array, naive approach
 class Solution {
 public:
