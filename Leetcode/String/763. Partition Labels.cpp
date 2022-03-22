@@ -19,3 +19,28 @@ Constraints:
 1 <= s.length <= 500
 s consists of lowercase English letters.
 */
+class Solution {
+public:
+    vector<int> partitionLabels(string s) {
+         unordered_map<char,int>mp;
+        // filling last occurence of character's in map
+        for(int i = 0; i < s.size(); i++){
+            char ch = s[i];
+            mp[ch] = i;
+        }
+        // making of result
+        vector<int> res;
+        int prev = -1; //storing starting index of a part
+        int maxi = 0;  //storing ending index of part
+        
+        for(int i = 0; i < s.size(); i++){
+            maxi = max(maxi, mp[s[i]]);
+            if(maxi == i){
+                // partition time
+                res.push_back(maxi - prev);
+                prev = maxi;
+            }
+        }
+        return res;
+    }
+};
