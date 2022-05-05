@@ -30,7 +30,6 @@ public:
         return v;}
 };
 
-
 //Java Solution to understand more functionality of ArrayList
 class Solution {
     public List<List<Integer>> generate(int numRows) {
