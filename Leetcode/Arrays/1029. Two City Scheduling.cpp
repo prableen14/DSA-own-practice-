@@ -32,7 +32,7 @@ public:
         sort(costs.begin(), costs.end(), [](const vector<int>&a, const vector<int>&b){
             return (a[0] - a[1]) < (b[0] - b[1]);
         });
-        
+     
         // 1st pair 2nd pair
         // 1st pair a-b  < 2nd pairs a-b    
         
