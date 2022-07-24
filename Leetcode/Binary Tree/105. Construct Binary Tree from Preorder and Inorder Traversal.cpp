@@ -19,3 +19,26 @@ Each value of inorder also appears in preorder.
 preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
 */
+class Solution {
+public:
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder){
+        int n=preorder.size();
+        return build(preorder,inorder,0,n-1,0,n-1);
+    }
+    TreeNode* build(vector<int>& preorder, vector<int>& inorder, int psi,int pei,int isi, int iei) {
+        if(isi>iei) return NULL;
+        
+        int idx=isi;
+        while(inorder[idx]!=preorder[psi]) idx++;
+        int colse=idx-isi;
+        TreeNode* node=  new TreeNode(preorder[psi]);
+        node->left=build(preorder,inorder,psi+1,psi+colse,isi,idx-1);
+        node->right=build(preorder,inorder,psi+colse+1,pei,idx+1,iei);
+        
+        return node;
+    }   
+};
+//isi - inorder starting index
+//iei - inorder ending index
+//psi - preorder starting index
+//pei - preorder ending index
