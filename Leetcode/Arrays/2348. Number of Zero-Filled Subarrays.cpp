@@ -28,6 +28,9 @@ Constraints:
 1 <= nums.length <= 105
 -109 <= nums[i] <= 109
 */
+
+//if n numbers are given then no. of subarrays possible= n*(n+1)/2
+//Here in this code we have found n, that is no of zeros (which is c )
 class Solution {
 public:
     long long zeroFilledSubarray(vector<int>& nums) {
