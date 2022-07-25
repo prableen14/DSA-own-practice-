@@ -16,3 +16,26 @@ Constraints:
 The number of nodes in the tree is in the range [1, 1000].
 Node.val == 0
 */
+class Solution {
+public:
+    int cameras=0;
+    int minCameraCover(TreeNode* root) {
+        if(minCameraCoverCount(root)==-1) cameras++;
+        return cameras;
+    }
+    int minCameraCoverCount(TreeNode* root){
+        if(root==NULL) return 1;
+        
+        int lchild=minCameraCoverCount(root->left);
+        int rchild=minCameraCoverCount(root->right);
+        
+        if(lchild==-1 || rchild==-1){
+            cameras++;
+            return 0; //this thing i told to my parent
+        }
+        if(lchild==0 || rchild==0){
+            return 1;
+        }
+        return -1; //if both my child is not having camera and is saying that they dont need camera because they are already covered, then i will ask my parent to take care of me. that is why -1 is returned.
+    }
+};
