@@ -41,3 +41,7 @@ int main(){
     } 
     cout<<osum;
 }
+//in test case with all negative numbers we have to return 0 as acc to above code, answer will be negative.
+//For eg: -7 -8 -16 -4 -8 -5 -7 -11 -10 -12 -4 -6 -4 -16 -10 
+//Here it is returning -4 accto above code, therefore wehave to make a little change:
+return osum>0?osum:0; //only this line is changed to this
