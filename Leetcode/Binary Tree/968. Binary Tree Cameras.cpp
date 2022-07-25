@@ -20,7 +20,7 @@ class Solution {
 public:
     int cameras=0;
     int minCameraCover(TreeNode* root) {
-        if(minCameraCoverCount(root)==-1) cameras++;
+        if(minCameraCoverCount(root)==-1) cameras++; //this is a CRITICAL case.(This happens when root needs camera. Then we have to put one camera at root.)
         return cameras;
     }
     int minCameraCoverCount(TreeNode* root){
