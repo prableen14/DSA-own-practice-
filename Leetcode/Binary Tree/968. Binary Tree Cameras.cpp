@@ -29,6 +29,7 @@ public:
         int lchild=minCameraCoverCount(root->left);
         int rchild=minCameraCoverCount(root->right);
         
+        //working in postorder
         if(lchild==-1 || rchild==-1){
             cameras++;
             return 0; //this thing i told to my parent
