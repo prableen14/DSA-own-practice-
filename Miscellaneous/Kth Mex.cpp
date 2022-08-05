@@ -20,6 +20,11 @@ samllest value.
 
 Your task:
 You don't need to read input or print anything. Your task is to complete the function KthMEX(), which takes 2 integers K and N and array A as input parameters and return Kth MEX of A.
+
+Constraints:
+1<=N<=10^5
+1<=K<=N
+1<=A<=10^9
 */
 int kthMex(int N, int K, int A[]) {
     // code here
