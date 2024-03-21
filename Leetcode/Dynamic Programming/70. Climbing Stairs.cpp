@@ -19,6 +19,9 @@ Explanation: There are three ways to climb to the top.
 Constraints:
 1 <= n <= 45
 */
+//Bottom-Up Approach: Tabulation is a bottom-up approach to dynamic programming. 
+//You start with the smallest subproblems and iteratively solve larger and larger problems, building up the solution to the main problem.
+dp[0]=1 //isko tu bhulegi, that is why im documentiing this, iska reason h ki if you look at your base case of 2 (starting case) toh 2nd stair par pohochne ke 2 ways are there: ek toh 1+1 step lena (which is dp[1] =1 ya fir dp[0]=1 matlab direct 2 steps , toh dp[0] is base case ko start karne ke liye 1 liya gya h
 class Solution {
 public:
     int climbStairs(int n) {
